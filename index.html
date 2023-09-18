@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <!-- Element for the model viewer the data-model-url helps to provide a link to the model you wish to show it should be in glb format -->
+    <div id="model-viewer" data-model-url="/Motorcycle.glb" class="viewer-container" style="height: 300px;">
+     <div class="control-buttons">
+      <button class="control-button" id="zoom-in"><i class="bi bi-zoom-in"></i></button>
+      <button class="control-button" id="zoom-out"><i class="bi bi-zoom-out"></i></button>
+      <button class="control-button" id="rotate"><i class="bi bi-arrow-clockwise"></i></button>
+      <button class="control-button" id="fullscreen"><i class="bi bi-fullscreen"></i></button>
+     </div>
+    </div>
+    <!-- End of Element -->
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

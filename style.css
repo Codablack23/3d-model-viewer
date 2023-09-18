@@ -1,0 +1,42 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
+:root{
+  --primary: #4491C2;
+  --white: #ffffff;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.viewer-container{
+  width: 100%;
+  position: relative;
+}
+.viewer-container .control-buttons{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10000;
+}
+.control-buttons .control-button{
+  width: 36px;
+  background:var(--primary);
+  border-radius: 100px;
+  border: none;
+  height: 36px;
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.control-buttons i{
+  font-size: 18px;
+}
+
