@@ -2,7 +2,7 @@ import './style.css'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { dl, goFullScreen, rotate180, zoom, zoomToPosition } from './helpers';
+import { dl, goFullScreen, rotate180, zoom, zoomToPosition,rotateReverse180 } from './helpers';
 
 function init(){
 const el = document.getElementById("model-viewer")
@@ -10,6 +10,7 @@ const el = document.getElementById("model-viewer")
 const zoomInButton = document.getElementById("zoom-in")
 const zoomOutButton = document.getElementById("zoom-out")
 const rotateButton = document.getElementById("rotate")
+const reverseRotateButton = document.getElementById("rotate-reverse")
 const fullscreenButton = document.getElementById("fullscreen")
 
  if(el){
@@ -73,6 +74,9 @@ const fullscreenButton = document.getElementById("fullscreen")
   rotateButton.addEventListener('click',()=>{
     rotate180(model)
   })  
+  reverseRotateButton.addEventListener('click',()=>{
+    rotateReverse180(model)
+  })  
   fullscreenButton.addEventListener('click',()=>{
     goFullScreen(el)
   })
@@ -82,7 +86,8 @@ const fullscreenButton = document.getElementById("fullscreen")
       let y = (e.clientY / el.offsetHeight) * 2 + 1
       zoomToPosition(camera,{
         x,
-        y      
+        y,
+        controls    
        })
     })
     window.addEventListener('resize',()=>{

@@ -1,9 +1,17 @@
 import gsap from "gsap"
 
-export function zoomToPosition(camera,{x,y}){
+export function zoomToPosition(camera,{x,y,controls}){
     gsap.to(camera.position,{
      y,
      x,
+     duration:2,
+     onComplete:()=>{
+      if(controls){
+        controls.autoRotate = false
+        controls.minDistance = 0
+        controls.update()
+      }
+     }
    })
  }
  
@@ -15,7 +23,10 @@ export function zoomToPosition(camera,{x,y}){
      overwrite: 'auto',
      ease: 'power1.inOut',
      onComplete: () => {
-         controls.maxDistance = 8 // reset to initial min distance
+         controls.autoRotate = false
+         controls.maxDistance = 8
+         controls.update()
+          // reset to initial min distance
      },
    })
   }
@@ -26,6 +37,8 @@ export function zoomToPosition(camera,{x,y}){
      overwrite: 'auto',
      ease: 'power1.inOut',
      onComplete: () => {
+         controls.autoRotate = false
+         controls.update()
          controls.minDistance = 0 // reset to initial min distance
      },
    })
@@ -34,7 +47,14 @@ export function zoomToPosition(camera,{x,y}){
  
  export function rotate180(model){
    gsap.to(model.rotation,{
+     duration: 4,
      y:model.rotation.y + Math.PI
+   })
+ }
+ export function rotateReverse180(model){
+   gsap.to(model.rotation,{
+     duration: 4,
+     y:model.rotation.y - Math.PI
    })
  }
 
